@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:15:38 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/01 10:21:09 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/07 18:11:30 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,26 @@ void	my_mlx_pixel_put(t_fra *fra, int x, int y, int color)
 void	init_mlx(t_fra *fra)
 {
 	fra->mlx.mlx_ptr = mlx_init();
-	fra->mlx.mlx_win = mlx_new_window(fra->mlx.mlx_ptr, 800, 600, "FraTol");
+	fra->mlx.mlx_win = mlx_new_window(fra->mlx.mlx_ptr, fra->resX, fra->resY, "FraTol");
+}
+
+void	print_raydir_x_y(t_cube *cub, int x)
+{
+	int		y;
+
+	y = 0;
+	cub->ZBuffer[x] = cub->ray.perpWallDist;
+	text_calc(cub);
+	while (y < cub->resY)
+	{
+		if (y < cub->ray.drawStart)
+			y = paint_ceiling(cub, x, y);
+		else if (y > cub->ray.drawStart && y < cub->ray.drawEnd)
+			y = paint_wall(cub, x, y);
+		else if (y > cub->ray.drawEnd)
+			y = paint_floor(cub, x, y);
+		y++;
+	}
 }
 
 int		main ()
@@ -41,12 +60,11 @@ int		main ()
 
 	fra = ft_calloc(sizeof(t_fra), 1);
 	fra->temp = 0;	
-
+	fra->resX = 800;
+	fra->resY = 800;
 
 	printf("Hola Majo que quieres de pincho");
 	free_all(fra);
 	system("leaks fractol");
 	return(0);
-
-
 }
