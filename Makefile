@@ -6,7 +6,7 @@
 #    By: juasanto <juasanto>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 10:44:34 by juasanto          #+#    #+#              #
-#    Updated: 2021/05/17 17:27:24 by juasanto         ###   ########.fr        #
+#    Updated: 2021/06/08 11:04:39 by juasanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ clean:
 		$(RM) $(OBJS)
 		make -C $(LIB_DIR) clean
 		make -C $(MINI_DIR) clean
+		$(RM) libmlx.dylib
 		@echo "$(PINK)=========== DONE ===========$(RESET)"
 fclean: clean
 		@echo "$(RED)========== FCLEAN =========="
