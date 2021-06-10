@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:20:45 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/06 13:49:57 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/10 18:49:09 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ typedef struct s_fra
 	int				temp;
 	int				resX;
 	int				resY;
+	double			r;
+	double			g;
+	double			b;
+	double			h;
+	double			s;
+	double			v;
 	t_mlx			mlx;
 }					t_fra;
 
