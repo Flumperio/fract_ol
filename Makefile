@@ -6,7 +6,7 @@
 #    By: juasanto <juasanto>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 10:44:34 by juasanto          #+#    #+#              #
-#    Updated: 2021/06/08 11:04:39 by juasanto         ###   ########.fr        #
+#    Updated: 2021/06/11 15:22:04 by juasanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,10 @@ MINI_DIR	=	minilibx/
 OBJ_DIR		=	obj/
 SRCS_DIR	=	sources/
 SRCS		= 	fractol.c \
+				keymgr.c \
+				util_fra.c \
+				hsv_to_rgb.c \
+				fra_julia.c
 
 SOURCES = $(addprefix $(SRCS_DIR), $(SRCS))
 OBJS = $(SOURCES:.c=.o)
