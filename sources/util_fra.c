@@ -6,13 +6,11 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:06:23 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/11 14:10:49 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/14 13:28:21 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../includes/fractol.h"
-
 
 int	to_rgb(int r, int g, int b)
 {
@@ -35,4 +33,3 @@ void	my_mlx_pixel_put(t_fra *fra, int x, int y, int color)
 			+ x * (fra->mlx.bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
-

@@ -6,65 +6,67 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:47:24 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/11 15:44:02 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/14 13:26:40 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void HsvToRgb(t_fra *fra, unsigned char h, unsigned char s, unsigned char v)
+void	condi_if1(t_fra *fra, int v)
 {
-	unsigned char	region;
-	unsigned char	rema;
-	unsigned char	p;
-	unsigned char	q;
-	unsigned char	t;
+	fra->r = v;
+	fra->g = fra->hsv.p;
+	fra->b = fra->hsv.q;
+	if (fra->hsv.region == 0)
+	{
+		fra->r = v;
+		fra->g = fra->hsv.t;
+		fra->b = fra->hsv.p;
+	}
+	if (fra->hsv.region == 1)
+	{
+		fra->r = fra->hsv.q;
+		fra->g = v;
+		fra->b = fra->hsv.p;
+	}
+}
+
+void	condi_if2(t_fra *fra, int v)
+{
+	if (fra->hsv.region == 2)
+	{	
+		fra->r = fra->hsv.p;
+		fra->g = v;
+		fra->b = fra->hsv.t;
+	}
+	if (fra->hsv.region == 3)
+	{
+		fra->r = fra->hsv.p;
+		fra->g = fra->hsv.q;
+		fra->b = v;
+	}
+	if (fra->hsv.region == 4)
+	{
+		fra->r = fra->hsv.t;
+		fra->g = fra->hsv.p;
+		fra->b = v;
+	}
+}
+
+void	HsvToRgb(t_fra *fra, unsigned char h, unsigned char s, unsigned char v)
+{
 	if (s == 0)
 	{
 		fra->r = v;
 		fra->g = v;
 		fra->b = v;
-	return ;
+		return ;
 	}
-	region = h / 43;
-	rema = (h - (region * 43)) * 6; 
-	p = (v * (255 - s)) >> 8;
-	q = (v * (255 - ((s * rema) >> 8))) >> 8;
-	t = (v * (255 - ((s * (255 - rema)) >> 8))) >> 8;
-	if (region == 0)
-	{
-		fra->r = v;
-		fra->g = t;
-		fra->b = p;
-	}
-	else if (region == 1)
-	{
-		fra->r = q;
-		fra->g = v; 
-		fra->b = p;
-	}
-	else if (region == 2)
-	{	
-		fra->r = p;
-		fra->g = v;
-		fra->b = t;
-	}
-	else if (region == 3)
-	{
-		fra->r = p;
-		fra->g = q;
-		fra->b = v;
-	}
-	else if (region == 4)
-	{
-		fra->r = t;
-		fra->g = p;
-		fra->b = v;
-	}
-	else
-	{
-		fra->r = v;
-		fra->g = p;
-		fra->b = q;
-	}
+	fra->hsv.region = h / 43;
+	fra->hsv.rema = (h - (fra->hsv.region * 43)) * 6;
+	fra->hsv.p = (v * (255 - s)) >> 8;
+	fra->hsv.q = (v * (255 - ((s * fra->hsv.rema) >> 8))) >> 8;
+	fra->hsv.t = (v * (255 - ((s * (255 - fra->hsv.rema)) >> 8))) >> 8;
+	condi_if1(fra, v);
+	condi_if2(fra, v);
 }
