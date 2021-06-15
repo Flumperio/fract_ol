@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:20:45 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/14 15:20:53 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:19:37 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,31 @@ typedef struct s_jul
 	int				x;
 	int				y;
 }					t_jul;
+/*
+* Fractal Mandelbroth
+*/
+typedef struct s_man
+{
+	double			pr;
+	double			pi;
+	double			cRe;
+	double			cIm;
+	double			newRe;
+	double			newIm;
+	double			oldRe;
+	double			oldIm;
+	double			zoom;
+	double			moveX;
+	double			moveY;
+	int				maxIterations;
+	int				i;
+	int				x;
+	int				y;
+}					t_man;
 
 typedef struct s_fra
 {
+	char			*argv;
 	int				temp;
 	int				resX;
 	int				resY;
@@ -100,6 +122,7 @@ typedef struct s_fra
 	float			v;
 	t_mlx			mlx;
 	t_jul			jul;
+	t_man			man;
 	t_hsv			hsv;
 	t_bol			bol;
 }					t_fra;
@@ -110,7 +133,9 @@ void	free_all(t_fra *fra);
 void	my_mlx_pixel_put(t_fra *fra, int x, int y, int color);
 void	HsvToRgb(t_fra *fra, unsigned char h, unsigned char s, unsigned char v);
 void	init_val(t_fra *fra);
+void	init_val_m(t_fra *fra);
 int		fracta_Julia(t_fra *fra);
+int		fracta_Mandel(t_fra *fra);
 int		key_press(int keykode, t_fra *fra);
 int		key_relea(int keycode, t_fra *fra);
 void	pl_move(t_fra *fra);
