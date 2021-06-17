@@ -6,7 +6,7 @@
 #    By: juasanto <juasanto>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 10:44:34 by juasanto          #+#    #+#              #
-#    Updated: 2021/06/15 16:17:02 by juasanto         ###   ########.fr        #
+#    Updated: 2021/06/17 20:36:04 by juasanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS		= 	fractol.c \
 				util_fra.c \
 				hsv_to_rgb.c \
 				fra_julia.c \
-				fra_mandel.c
+				fra_mandel.c \
+				init_fra.c
 
 SOURCES = $(addprefix $(SRCS_DIR), $(SRCS))
 OBJS = $(SOURCES:.c=.o)

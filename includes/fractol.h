@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:20:45 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/15 16:19:37 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/17 20:33:15 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,9 @@ int		to_rgb(int r, int g, int b);
 void	free_all(t_fra *fra);
 void	my_mlx_pixel_put(t_fra *fra, int x, int y, int color);
 void	HsvToRgb(t_fra *fra, unsigned char h, unsigned char s, unsigned char v);
-void	init_val(t_fra *fra);
-void	init_val_m(t_fra *fra);
+//void	init_val(t_fra *fra);
+//void	init_val_m(t_fra *fra);
+void	selec_init(t_fra *fra);
 int		fracta_Julia(t_fra *fra);
 int		fracta_Mandel(t_fra *fra);
 int		key_press(int keykode, t_fra *fra);

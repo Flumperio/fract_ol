@@ -6,21 +6,11 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 15:19:27 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/17 18:19:11 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/17 20:33:40 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-void	init_val_m(t_fra *fra)
-{
-	fra->jul.zoom = 1;
-	fra->jul.moveX = -0.5;
-	fra->jul.moveY = 0;
-	fra->jul.maxIterations = 128;
-	//fra->jul.cRe = -0.7;
-	//fra->jul.cIm = 0.28024;
-}
 
 int	calc_i_m(t_fra *fra)
 {
