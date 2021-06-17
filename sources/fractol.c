@@ -43,7 +43,8 @@ int	raycast_loop(t_fra *fra)
 			&fra->mlx.line_length, &fra->mlx.endian);
 	if(ft_strchr(fra->argv, '1') != 0)
 		fracta_Julia(fra);
-	fracta_Mandel(fra);
+	else
+		fracta_Mandel(fra);
 	mlx_put_image_to_window(fra->mlx.mlx_ptr,
 		fra->mlx.mlx_win, fra->mlx.img, 0, 0);
 	mlx_destroy_image(fra->mlx.mlx_ptr, fra->mlx.img);
@@ -76,7 +77,7 @@ int	main (int argc, char **argv)
 {
 	t_fra	*fra;
 
-	fra = ft_calloc(sizeof(t_fra), 1);
+	fra = ft_calloc(sizeof(t_fra), sizeof(t_fra));
 	chk_args(fra, argc, argv);
 	raycast(fra);
 	free_all(fra);
