@@ -71,6 +71,8 @@ typedef struct s_hsv
 */
 typedef struct s_jul
 {
+    double			pr;
+    double			pi;
 	double			cRe;
 	double			cIm;
 	double			newRe;
@@ -85,27 +87,6 @@ typedef struct s_jul
 	int				x;
 	int				y;
 }					t_jul;
-/*
-* Fractal Mandelbroth
-*/
-typedef struct s_man
-{
-	double			pr;
-	double			pi;
-	double			cRe;
-	double			cIm;
-	double			newRe;
-	double			newIm;
-	double			oldRe;
-	double			oldIm;
-	double			zoom;
-	double			moveX;
-	double			moveY;
-	int				maxIterations;
-	int				i;
-	int				x;
-	int				y;
-}					t_man;
 
 typedef struct s_fra
 {
@@ -122,7 +103,6 @@ typedef struct s_fra
 	float			v;
 	t_mlx			mlx;
 	t_jul			jul;
-	t_man			man;
 	t_hsv			hsv;
 	t_bol			bol;
 }					t_fra;

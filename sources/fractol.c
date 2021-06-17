@@ -23,7 +23,7 @@ int		raycast_loop(t_fra *fra);
 void	init_mlx(t_fra *fra)
 {
 	fra->mlx.mlx_ptr = mlx_init();
-	fra->resX = 600;
+	fra->resX = 800;
 	fra->resY = 600;
 	fra->mlx.mlx_win = mlx_new_window(fra->mlx.mlx_ptr,
 			fra->resX, fra->resY, "FraTol");

@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 13:57:19 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/14 16:16:02 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/17 18:17:38 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,11 @@ void	zoom_in(t_fra *fra)
 void	pl_move(t_fra *fra)
 {
 	if (fra->bol.key_fw == 1)
+	{
 		fra->jul.zoom *= pow(1.001, 30);
+	}
 	if (fra->bol.key_bw == 1)
+	{
 		fra->jul.zoom /= pow(1.001, 30);
+	}
 }
