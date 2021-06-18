@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:15:38 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/17 20:59:26 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/18 17:20:41 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	raycast(t_fra *fra)
 {
 	init_mlx(fra);
 	selec_init(fra);
+	//mlx_mouse_hook(fra->mlx.mlx_win, mouse_hook, fra);
+//	mlx_hook(fra->mlx.mlx_win, 6, 1L << 13, mouse_hook, fra);
 	mlx_hook(fra->mlx.mlx_win, 2, 1L << 0, key_press, fra);
 	mlx_hook(fra->mlx.mlx_win, 3, 1L << 1, key_relea, fra);
 	mlx_hook(fra->mlx.mlx_win, 17, 1L << 17, ui_cross_exit, fra);
@@ -59,11 +61,13 @@ void	raycast(t_fra *fra)
 void	chk_args (t_fra *fra, int argc, char **argv)
 {
 	if (argc <= 1 || argc > 2)
-		ft_msgerror("Nuemero de argumentos erróneo.\nLas opciones disponibles son:\n1 --> Julia\n2 --> Mandelbroth", 1);
+		ft_msgerror("Nuemero de argumentos erróneo.\nLas opciones\
+				disponibles son:\n1 --> Julia\n2 --> Mandelbroth", 1);
 	if ((ft_strchr(argv[1], '1') != 0) || (ft_strchr(argv[1], '2') !=0))
 		fra->argv = argv[1];
 	else
-		ft_msgerror("Selección errónea.\nLas opciones disponibles son:\n1 --> Julia\n2 --> Mandelbroth", 1);
+		ft_msgerror("Selección errónea.\nLas opciones disponibles son:\n1 -->\
+				Julia\n2 --> Mandelbroth", 1);
 }
 
 int	main (int argc, char **argv)

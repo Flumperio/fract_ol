@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 13:57:19 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/17 18:17:38 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/18 11:23:41 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ui_cross_exit(t_fra *fra)
 
 int	key_press(int keycode, t_fra *fra)
 {
-	//printf("keykode: %i\n", keycode);
+	printf("keykode: %i\n", keycode);
 	if (keycode == KEY_ESC)
 	{
 		mlx_destroy_window(fra->mlx.mlx_ptr, fra->mlx.mlx_win);
@@ -72,10 +72,10 @@ void	pl_move(t_fra *fra)
 {
 	if (fra->bol.key_fw == 1)
 	{
-		fra->jul.zoom *= pow(1.001, 30);
+		fra->jul.zoom *= pow(1.001, 40);
 	}
 	if (fra->bol.key_bw == 1)
 	{
-		fra->jul.zoom /= pow(1.001, 30);
+		fra->jul.zoom /= pow(1.001, 40);
 	}
 }

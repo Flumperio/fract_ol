@@ -6,7 +6,7 @@
 #    By: juasanto <juasanto>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 10:44:34 by juasanto          #+#    #+#              #
-#    Updated: 2021/06/17 20:36:04 by juasanto         ###   ########.fr        #
+#    Updated: 2021/06/18 11:42:12 by juasanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ OBJ_DIR		=	obj/
 SRCS_DIR	=	sources/
 SRCS		= 	fractol.c \
 				keymgr.c \
+				mousemgr.c \
 				util_fra.c \
 				hsv_to_rgb.c \
 				fra_julia.c \

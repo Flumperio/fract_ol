@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:20:45 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/17 20:33:15 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/18 17:10:49 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ typedef struct s_hsv
 */
 typedef struct s_jul
 {
-    double			pr;
-    double			pi;
+	double			pr;
+	double			pi;
 	double			cRe;
 	double			cIm;
 	double			newRe;
@@ -119,6 +119,7 @@ int		fracta_Julia(t_fra *fra);
 int		fracta_Mandel(t_fra *fra);
 int		key_press(int keykode, t_fra *fra);
 int		key_relea(int keycode, t_fra *fra);
+int		mouse_hook(int button, int x, int y, t_fra *fra);
 void	pl_move(t_fra *fra);
 void	zoom_in(t_fra *fra);
 #endif
