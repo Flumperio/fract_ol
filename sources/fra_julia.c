@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 15:19:27 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/18 17:22:02 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/21 18:41:44 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	fracta_Julia(t_fra *fra)
 			fra->jul.i = calc_i(fra);
 			HsvToRgb(fra, fra->jul.i % 256, 255, 255
 				* (fra->jul.i < fra->jul.maxIterations));
-			fra->color = to_rgb(fra->r, fra->g, fra->b);
+			fra->color = fra->temp + (to_rgb(fra->r, fra->g, fra->b));
 			my_mlx_pixel_put(fra, x, y, fra->color);
 			x++;
 		}

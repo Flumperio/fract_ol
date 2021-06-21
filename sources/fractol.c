@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:15:38 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/21 11:01:24 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/21 19:13:51 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	raycast(t_fra *fra)
 	init_mlx(fra);
 	selec_init(fra);
 	mlx_mouse_hook(fra->mlx.mlx_win, mouse_hook, fra);
-//	mlx_hook(fra->mlx.mlx_win, 6, 1L << 13, mouse_hook, fra);
+	mlx_hook(fra->mlx.mlx_win, 6, 1L << 6, mouse_move, fra);
 	mlx_hook(fra->mlx.mlx_win, 2, 1L << 0, key_press, fra);
 	mlx_hook(fra->mlx.mlx_win, 3, 1L << 1, key_relea, fra);
 	mlx_hook(fra->mlx.mlx_win, 17, 1L << 17, ui_cross_exit, fra);

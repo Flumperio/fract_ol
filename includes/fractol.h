@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:20:45 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/21 11:41:51 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/21 19:15:11 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@
 /*
 ** Define Keys
 */
-# define KEY_FW 13
-# define KEY_BW 1
-# define KEY_RR 2
-# define KEY_RL 0
-# define KEY_SR 14
-# define KEY_SL 12
+# define KEY_FW 126
+# define KEY_BW 125
+# define KEY_RS 15
+# define KEY_CL 8
+# define KEY_SR 124
+# define KEY_SL 123
 # define KEY_ESC 53
 /*
 ** Move Booleans
@@ -37,8 +37,9 @@ typedef struct s_bol
 {
 	int				key_fw;
 	int				key_bw;
-	int				key_rl;
-	int				key_rr;
+//	int				key_rl;
+//	int				key_rr;
+	int				key_cl;
 	int				key_sl;
 	int				key_sr;
 }					t_bol;
@@ -122,6 +123,7 @@ int		fracta_Mandel(t_fra *fra);
 int		key_press(int keykode, t_fra *fra);
 int		key_relea(int keycode, t_fra *fra);
 int		mouse_hook(int button, int x, int y, t_fra *fra);
+int		mouse_move(int x, int y, t_fra *fra);
 void	pl_move(t_fra *fra);
 void	zoom_in(t_fra *fra);
 #endif

@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 13:57:19 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/18 11:23:41 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/21 19:08:07 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ int	key_press(int keycode, t_fra *fra)
 		exit(0);
 		return (1);
 	}
+	if (keycode == KEY_RS)
+		selec_init(fra);
 	if (keycode == KEY_FW)
 		fra->bol.key_fw = 1;
 	if (keycode == KEY_BW)
 		fra->bol.key_bw = 1;
-	if (keycode == KEY_RL)
-		fra->bol.key_rl = 1;
-	if (keycode == KEY_RR)
-		fra->bol.key_rr = 1;
+	if (keycode == KEY_CL)
+		fra->bol.key_cl = 1;
 	if (keycode == KEY_SL)
 		fra->bol.key_sl = 1;
 	if (keycode == KEY_SR)
@@ -52,10 +52,8 @@ int	key_relea(int keycode, t_fra *fra)
 		fra->bol.key_fw = 0;
 	if (keycode == KEY_BW)
 		fra->bol.key_bw = 0;
-	if (keycode == KEY_RL)
-		fra->bol.key_rl = 0;
-	if (keycode == KEY_RR)
-		fra->bol.key_rr = 0;
+	if (keycode == KEY_CL)
+		fra->bol.key_cl = 0;
 	if (keycode == KEY_SL)
 		fra->bol.key_sl = 0;
 	if (keycode == KEY_SR)
@@ -63,19 +61,20 @@ int	key_relea(int keycode, t_fra *fra)
 	return (0);
 }
 
-void	zoom_in(t_fra *fra)
-{
-	fra->jul.zoom *= pow(1.001, 30);
-}
-
 void	pl_move(t_fra *fra)
 {
+	double	move_const;
+
+	move_const = 0.0003 * 30;
 	if (fra->bol.key_fw == 1)
-	{
-		fra->jul.zoom *= pow(1.001, 40);
-	}
+		fra->jul.moveY += (move_const / fra->jul.zoom);
 	if (fra->bol.key_bw == 1)
-	{
-		fra->jul.zoom /= pow(1.001, 40);
-	}
+		fra->jul.moveY -= (move_const / fra->jul.zoom);
+	if (fra->bol.key_sl == 1)
+		fra->jul.moveX += (move_const / fra->jul.zoom);
+	if (fra->bol.key_sr == 1)
+		fra->jul.moveX -= (move_const / fra->jul.zoom);
+	if (fra->bol.key_cl == 1)
+		fra->temp += 5;
+
 }
