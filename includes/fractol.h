@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:20:45 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/18 17:10:49 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/21 11:41:51 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ typedef struct s_jul
 	double			zoom;
 	double			moveX;
 	double			moveY;
+	double			oldmouseX;
+	double			oldmouseY;
 	int				maxIterations;
 	int				i;
 	int				x;
