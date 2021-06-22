@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:15:38 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/21 19:13:51 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/22 16:01:04 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	raycast_loop(t_fra *fra)
 	fra->mlx.addr = mlx_get_data_addr(fra->mlx.img, &fra->mlx.bits_per_pixel,
 			&fra->mlx.line_length, &fra->mlx.endian);
 	if (fra->argv[0] == '1')
-		fracta_Julia(fra);
+		fracta_Newton(fra);
 	else
 		fracta_Mandel(fra);
 	mlx_put_image_to_window(fra->mlx.mlx_ptr,

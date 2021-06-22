@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:20:45 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/21 19:15:11 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/22 16:01:53 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ void	HsvToRgb(t_fra *fra, unsigned char h, unsigned char s, unsigned char v);
 void	selec_init(t_fra *fra);
 int		fracta_Julia(t_fra *fra);
 int		fracta_Mandel(t_fra *fra);
+int		fracta_Newton(t_fra *fra);
 int		key_press(int keykode, t_fra *fra);
 int		key_relea(int keycode, t_fra *fra);
 int		mouse_hook(int button, int x, int y, t_fra *fra);

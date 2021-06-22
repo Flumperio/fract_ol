@@ -6,7 +6,7 @@
 #    By: juasanto <juasanto>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 10:44:34 by juasanto          #+#    #+#              #
-#    Updated: 2021/06/18 11:42:12 by juasanto         ###   ########.fr        #
+#    Updated: 2021/06/22 16:03:01 by juasanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS		= 	fractol.c \
 				hsv_to_rgb.c \
 				fra_julia.c \
 				fra_mandel.c \
+				fra_newton.c \
 				init_fra.c
 
 SOURCES = $(addprefix $(SRCS_DIR), $(SRCS))
