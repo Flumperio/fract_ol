@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 11:33:37 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/21 19:22:13 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/22 10:47:33 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ int	mouse_hook(int button, int x, int y, t_fra *fra)
 
 int		mouse_move(int x, int y, t_fra *fra)
 {
-	fra->temp = fra->temp;
+	char	*texto="Hola";
+		fra->temp = fra->temp;
 	if(x <= fra->resX && x > 0 && y <= fra->resY && y > 0)
-		printf("x: %i, y: %i\n", x, y);
+		//printf("x: %i, y: %i\n", x, y);
+		mlx_string_put(fra->mlx.mlx_ptr, fra->mlx.mlx_win, 10, 10, 0x000000, texto);
 	return(0);
 }
