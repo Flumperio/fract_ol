@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:15:38 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/22 16:01:04 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/24 09:20:35 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@ void	init_mlx(t_fra *fra);
 void	raycast(t_fra *fra);
 void	print_frac(t_fra *fra);
 int		raycast_loop(t_fra *fra);
-/*
- * Fractal
-*/
 
 void	init_mlx(t_fra *fra)
 {
@@ -36,9 +33,11 @@ int	raycast_loop(t_fra *fra)
 	fra->mlx.addr = mlx_get_data_addr(fra->mlx.img, &fra->mlx.bits_per_pixel,
 			&fra->mlx.line_length, &fra->mlx.endian);
 	if (fra->argv[0] == '1')
-		fracta_Newton(fra);
-	else
+		fracta_Julia(fra);
+	else if (fra->argv[0] == '2')
 		fracta_Mandel(fra);
+	else
+		fracta_Newton(fra);
 	mlx_put_image_to_window(fra->mlx.mlx_ptr,
 		fra->mlx.mlx_win, fra->mlx.img, 0, 0);
 	mlx_destroy_image(fra->mlx.mlx_ptr, fra->mlx.img);
@@ -61,13 +60,16 @@ void	raycast(t_fra *fra)
 void	chk_args (t_fra *fra, int argc, char **argv)
 {
 	if (argc <= 1 || argc > 2)
-		ft_msgerror("Nuemero de argumentos erróneo.\nLas opciones\
-				disponibles son:\n1 --> Julia\n2 --> Mandelbroth", 1);
-	if ((ft_strchr(argv[1], '1') != 0) || (ft_strchr(argv[1], '2') !=0))
+		ft_msgerror("Número de argumentos erróneo.\n\
+Las opciones disponibles son:\n\
+1 --> Julia\n2 --> Mandelbroth\n3 --> Newton", 1);
+	printf("argv_0: %s\nargv_1: %s\n", argv[0], argv[1]);
+	if ((argv[1][0] == '1') || (argv[1][0] == '2' || argv[1][0] == '3'))
 		fra->argv = argv[1];
 	else
-		ft_msgerror("Selección errónea.\nLas opciones disponibles son:\n1 -->\
-				Julia\n2 --> Mandelbroth", 1);
+		ft_msgerror("Número de argumentos erróneo.\n\
+Las opciones disponibles son:\n\
+1 --> Julia\n2 --> Mandelbroth\n3 --> Newton", 1);
 }
 
 int	main (int argc, char **argv)

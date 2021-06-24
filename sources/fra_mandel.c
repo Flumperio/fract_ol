@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 15:19:27 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/21 18:46:15 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/24 10:03:01 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ int	calc_i_m(t_fra *fra)
 	int	i;
 
 	i = 0;
+	fra->jul.newRe = 0;
+	fra->jul.newIm = 0;
+	fra->jul.oldRe = 0;
+	fra->jul.oldIm = 0;
 	while (i < fra->jul.maxIterations)
 	{
 		fra->jul.oldRe = fra->jul.newRe;
@@ -41,9 +45,10 @@ int	fracta_Mandel(t_fra *fra)
 		fra->jul.x = 0;
 		while (fra->jul.x < fra->resX)
 		{
-			fra->jul.pr = 1.5 * (fra->jul.x - fra->resX / 2) / (0.5 * fra->jul.zoom * fra->resX) + fra->jul.moveX;
-			fra->jul.pi = (fra->jul.y - fra->resY / 2) / (0.5 * fra->jul.zoom * fra->resY) + fra->jul.moveY;
-			fra->jul.newRe = fra->jul.newIm = fra->jul.oldRe = fra->jul.oldIm = 0;
+			fra->jul.pr = 1.5 * (fra->jul.x - fra->resX / 2) / (0.5
+					* fra->jul.zoom * fra->resX) + fra->jul.moveX;
+			fra->jul.pi = (fra->jul.y - fra->resY / 2) / (0.5
+					* fra->jul.zoom * fra->resY) + fra->jul.moveY;
 			fra->jul.i = calc_i_m(fra);
 			HsvToRgb(fra, fra->jul.i % 256, 255, 255
 				* (fra->jul.i < fra->jul.maxIterations));
