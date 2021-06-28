@@ -50,6 +50,7 @@ typedef struct s_mlx
 {
 	void			*mlx_ptr;
 	void			*mlx_win;
+	void 			*mlx_win_h;
 	void			*img;
 	char			*addr;
 	int				bits_per_pixel;
@@ -90,7 +91,19 @@ typedef struct s_jul
 	int				x;
 	int				y;
 }					t_jul;
-
+/*
+* Fractal Help_Window
+*/
+typedef struct s_hlp
+{
+	char			*x;
+	char 			*y;
+	char 			*zoom;
+	void 			*img;
+}					t_hlp;
+/*
+* Fractal General
+*/
 typedef struct s_fra
 {
 	char			*argv;
@@ -108,6 +121,7 @@ typedef struct s_fra
 	t_jul			jul;
 	t_hsv			hsv;
 	t_bol			bol;
+	t_hlp			hlp;
 }					t_fra;
 
 int		ui_cross_exit(t_fra *fra);

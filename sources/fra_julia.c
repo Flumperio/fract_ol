@@ -33,7 +33,7 @@ int	calc_i(t_fra *fra)
 	return (i);
 }
 
-int	fracta_Julia(t_fra *fra)
+int fracta_Julia(t_fra *fra)
 {
 	int	x;
 	int	y;

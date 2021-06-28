@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:15:38 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/24 09:20:35 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/28 13:41:36 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,29 @@ void	raycast(t_fra *fra);
 void	print_frac(t_fra *fra);
 int		raycast_loop(t_fra *fra);
 
+void	string_to_Window(t_fra *fra)
+{
+	mlx_clear_window(fra->mlx.mlx_ptr, fra->mlx.mlx_win_h);
+	mlx_string_put(fra->mlx.mlx_ptr, fra->mlx.mlx_win_h, 10, 20, 0xffffff, "X:");
+	mlx_string_put(fra->mlx.mlx_ptr, fra->mlx.mlx_win_h, 40, 20, 0xffffff, fra->hlp.x);
+	mlx_string_put(fra->mlx.mlx_ptr, fra->mlx.mlx_win_h, 10, 40, 0xffffff, "Y:");
+	mlx_string_put(fra->mlx.mlx_ptr, fra->mlx.mlx_win_h, 40, 40, 0xffffff, fra->hlp.y);
+	mlx_string_put(fra->mlx.mlx_ptr, fra->mlx.mlx_win_h, 10, 60, 0xffffff, "Zoom ABS:");
+	mlx_string_put(fra->mlx.mlx_ptr, fra->mlx.mlx_win_h, 110, 60, 0xffffff, fra->hlp.zoom);
+}
+
 void	init_mlx(t_fra *fra)
 {
 	fra->mlx.mlx_ptr = mlx_init();
 	fra->resX = 800;
 	fra->resY = 600;
+	fra->hlp.x = "0";
+	fra->hlp.y = "0";
+	fra->hlp.zoom = "0";
 	fra->mlx.mlx_win = mlx_new_window(fra->mlx.mlx_ptr,
 			fra->resX, fra->resY, "Frac_Tol");
+	fra->mlx.mlx_win_h = mlx_new_window(fra->mlx.mlx_ptr,
+			200, 90, "Help");
 }
 
 int	raycast_loop(t_fra *fra)
@@ -40,6 +56,7 @@ int	raycast_loop(t_fra *fra)
 		fracta_Newton(fra);
 	mlx_put_image_to_window(fra->mlx.mlx_ptr,
 		fra->mlx.mlx_win, fra->mlx.img, 0, 0);
+	string_to_Window(fra);
 	mlx_destroy_image(fra->mlx.mlx_ptr, fra->mlx.img);
 	return (0);
 }
