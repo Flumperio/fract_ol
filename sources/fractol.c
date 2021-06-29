@@ -6,15 +6,11 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:15:38 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/29 13:57:39 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/29 15:14:59 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-void	raycast(t_fra *fra);
-void	print_frac(t_fra *fra);
-int		raycast_loop(t_fra *fra);
 
 void	string_to_Window(t_fra *fra)
 {
@@ -90,6 +86,5 @@ int	main (int argc, char **argv)
 	chk_args(fra, argc, argv);
 	raycast(fra);
 	free_all(fra);
-	system("leaks fractol");
 	return (0);
 }

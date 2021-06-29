@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 13:57:19 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/29 13:42:41 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/29 15:15:16 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	key_press(int keycode, t_fra *fra)
 		free(fra->hlp.y);
 		free(fra->hlp.zoom);
 		free_all(fra);
-		system("leaks fractol");
 		exit(0);
 		return (1);
 	}
