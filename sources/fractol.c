@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:15:38 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/29 15:14:59 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/29 18:12:13 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,12 @@ void	raycast(t_fra *fra)
 
 void	chk_args (t_fra *fra, int argc, char **argv)
 {
-	if (argc <= 1 || argc > 2)
+	if (argc <= 1)
 		ft_msgerror("Número de argumentos erróneo.\n\
 Las opciones disponibles son:\n\
 1 --> Julia\n2 --> Mandelbroth\n3 --> Newton", 1);
-	if ((argv[1][0] == '1') || (argv[1][0] == '2' || argv[1][0] == '3'))
+	if ((argv[1][0] == '1' || argv[1][0] == '2' || argv[1][0] == '3')
+			&& !argv[1][1])
 		fra->argv = argv[1];
 	else
 		ft_msgerror("Número de argumentos erróneo.\n\
