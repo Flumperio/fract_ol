@@ -6,10 +6,9 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 15:29:03 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/22 16:12:55 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/29 13:51:38 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../includes/fractol.h"
 
@@ -22,11 +21,17 @@ int	calc_i_n(t_fra *fra)
 	{
 		fra->jul.oldRe = fra->jul.newRe;
 		fra->jul.oldIm = fra->jul.newIm;
-		fra->jul.newRe = 2*fra->jul.oldRe/3 - (fra->jul.oldRe*fra->jul.oldRe - fra->jul.oldIm*fra->jul.oldIm)/(fra->jul.oldRe*fra->jul.oldRe + fra->jul.oldIm*fra->jul.oldIm)/(fra->jul.oldRe*fra->jul.oldRe + fra->jul.oldIm*fra->jul.oldIm)/3;
-
-		fra->jul.newIm = 2*fra->jul.oldIm/3 + 2*fra->jul.oldRe*fra->jul.oldIm/(fra->jul.oldRe*fra->jul.oldRe + fra->jul.oldIm*fra->jul.oldIm)/(fra->jul.oldRe*fra->jul.oldRe + fra->jul.oldIm*fra->jul.oldIm)/3;
+		fra->jul.newRe = 2 * fra->jul.oldRe / 3 - (
+				fra->jul.oldRe * fra->jul.oldRe - fra->jul.oldIm
+				* fra->jul.oldIm) / (fra->jul.oldRe * fra->jul.oldRe
+				+ fra->jul.oldIm * fra->jul.oldIm) / (fra->jul.oldRe
+				* fra->jul.oldRe + fra->jul.oldIm * fra->jul.oldIm) / 3;
+		fra->jul.newIm = 2 * fra->jul.oldIm / 3 + 2 * fra->jul.oldRe
+			* fra->jul.oldIm / (fra->jul.oldRe * fra->jul.oldRe
+				+ fra->jul.oldIm * fra->jul.oldIm) / (fra->jul.oldRe
+				* fra->jul.oldRe + fra->jul.oldIm * fra->jul.oldIm) / 3;
 		if ((fra->jul.newRe * fra->jul.newRe
-				+ fra->jul.newIm * fra->jul.newIm) > 1.223323)
+				+ fra->jul.newIm * fra->jul.newIm) > 4)
 			break ;
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 13:57:19 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/21 19:08:07 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/29 13:42:41 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 int	ui_cross_exit(t_fra *fra)
 {
 	mlx_destroy_window(fra->mlx.mlx_ptr, fra->mlx.mlx_win);
+	free(fra->hlp.x);
+	free(fra->hlp.y);
+	free(fra->hlp.zoom);
 	free_all(fra);
 	exit(0);
 	return (1);
@@ -22,10 +25,12 @@ int	ui_cross_exit(t_fra *fra)
 
 int	key_press(int keycode, t_fra *fra)
 {
-	printf("keykode: %i\n", keycode);
 	if (keycode == KEY_ESC)
 	{
 		mlx_destroy_window(fra->mlx.mlx_ptr, fra->mlx.mlx_win);
+		free(fra->hlp.x);
+		free(fra->hlp.y);
+		free(fra->hlp.zoom);
 		free_all(fra);
 		system("leaks fractol");
 		exit(0);
@@ -76,5 +81,4 @@ void	pl_move(t_fra *fra)
 		fra->jul.moveX -= (move_const / fra->jul.zoom);
 	if (fra->bol.key_cl == 1)
 		fra->temp += 5;
-
 }

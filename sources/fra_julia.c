@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 15:19:27 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/21 18:41:44 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/29 13:32:31 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	calc_i(t_fra *fra)
 	return (i);
 }
 
-int fracta_Julia(t_fra *fra)
+int	fracta_Julia(t_fra *fra)
 {
 	int	x;
 	int	y;

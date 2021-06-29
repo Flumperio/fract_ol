@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:20:45 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/22 16:01:53 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/29 13:56:55 by juasanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_mlx
 {
 	void			*mlx_ptr;
 	void			*mlx_win;
-	void 			*mlx_win_h;
+	void			*mlx_win_h;
 	void			*img;
 	char			*addr;
 	int				bits_per_pixel;
@@ -97,9 +97,9 @@ typedef struct s_jul
 typedef struct s_hlp
 {
 	char			*x;
-	char 			*y;
-	char 			*zoom;
-	void 			*img;
+	char			*y;
+	char			*zoom;
+	void			*img;
 }					t_hlp;
 /*
 * Fractal General
@@ -129,8 +129,6 @@ int		to_rgb(int r, int g, int b);
 void	free_all(t_fra *fra);
 void	my_mlx_pixel_put(t_fra *fra, int x, int y, int color);
 void	HsvToRgb(t_fra *fra, unsigned char h, unsigned char s, unsigned char v);
-//void	init_val(t_fra *fra);
-//void	init_val_m(t_fra *fra);
 void	selec_init(t_fra *fra);
 int		fracta_Julia(t_fra *fra);
 int		fracta_Mandel(t_fra *fra);
@@ -141,4 +139,5 @@ int		mouse_hook(int button, int x, int y, t_fra *fra);
 int		mouse_move(int x, int y, t_fra *fra);
 void	pl_move(t_fra *fra);
 void	zoom_in(t_fra *fra);
+void	init_mlx(t_fra *fra);
 #endif
