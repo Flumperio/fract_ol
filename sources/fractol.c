@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:15:38 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/29 18:12:13 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/30 10:01:29 by jcsantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,6 @@ int	main (int argc, char **argv)
 	fra = ft_calloc(sizeof(t_fra), sizeof(t_fra));
 	chk_args(fra, argc, argv);
 	raycast(fra);
-	free_all(fra);
+	ft_free_struct(fra);
 	return (0);
 }

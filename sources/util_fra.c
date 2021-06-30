@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 14:06:23 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/17 20:51:22 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/30 10:06:39 by jcsantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	to_rgb(int r, int g, int b)
 	return ((b * 1) + (g * 256) + (r * 256 * 256));
 }
 
-void	free_all(t_fra *fra)
+void	ft_free_struct(t_fra *fra)
 {
-	int	cnt;
-
-	cnt = 0;
+	if (!fra)
+		return ;
 	free(fra);
+	fra = NULL;
 }
 
 void	my_mlx_pixel_put(t_fra *fra, int x, int y, int color)

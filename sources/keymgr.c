@@ -6,20 +6,25 @@
 /*   By: juasanto <juasanto@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 13:57:19 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/29 15:15:16 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/30 10:27:05 by jcsantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	ui_cross_exit(t_fra *fra)
+void	main_exit(t_fra *fra)
 {
 	mlx_destroy_window(fra->mlx.mlx_ptr, fra->mlx.mlx_win);
 	free(fra->hlp.x);
 	free(fra->hlp.y);
 	free(fra->hlp.zoom);
-	free_all(fra);
+	ft_free_struct(fra);
 	exit(0);
+}
+
+int	ui_cross_exit(t_fra *fra)
+{
+	main_exit(fra);
 	return (1);
 }
 
@@ -27,12 +32,7 @@ int	key_press(int keycode, t_fra *fra)
 {
 	if (keycode == KEY_ESC)
 	{
-		mlx_destroy_window(fra->mlx.mlx_ptr, fra->mlx.mlx_win);
-		free(fra->hlp.x);
-		free(fra->hlp.y);
-		free(fra->hlp.zoom);
-		free_all(fra);
-		exit(0);
+		main_exit(fra);
 		return (1);
 	}
 	if (keycode == KEY_RS)

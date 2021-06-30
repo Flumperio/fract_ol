@@ -6,7 +6,7 @@
 /*   By: juasanto <juasanto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:20:45 by juasanto          #+#    #+#             */
-/*   Updated: 2021/06/29 13:56:55 by juasanto         ###   ########.fr       */
+/*   Updated: 2021/06/30 10:17:59 by jcsantos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ typedef struct s_bol
 {
 	int				key_fw;
 	int				key_bw;
-//	int				key_rl;
-//	int				key_rr;
 	int				key_cl;
 	int				key_sl;
 	int				key_sr;
@@ -84,8 +82,6 @@ typedef struct s_jul
 	double			zoom;
 	double			moveX;
 	double			moveY;
-	double			oldmouseX;
-	double			oldmouseY;
 	int				maxIterations;
 	int				i;
 	int				x;
@@ -99,7 +95,6 @@ typedef struct s_hlp
 	char			*x;
 	char			*y;
 	char			*zoom;
-	void			*img;
 }					t_hlp;
 /*
 * Fractal General
@@ -115,8 +110,6 @@ typedef struct s_fra
 	float			g;
 	float			b;
 	float			h;
-	float			s;
-	float			v;
 	t_mlx			mlx;
 	t_jul			jul;
 	t_hsv			hsv;
@@ -126,7 +119,6 @@ typedef struct s_fra
 
 int		ui_cross_exit(t_fra *fra);
 int		to_rgb(int r, int g, int b);
-void	free_all(t_fra *fra);
 void	my_mlx_pixel_put(t_fra *fra, int x, int y, int color);
 void	HsvToRgb(t_fra *fra, unsigned char h, unsigned char s, unsigned char v);
 void	selec_init(t_fra *fra);
@@ -138,6 +130,6 @@ int		key_relea(int keycode, t_fra *fra);
 int		mouse_hook(int button, int x, int y, t_fra *fra);
 int		mouse_move(int x, int y, t_fra *fra);
 void	pl_move(t_fra *fra);
-void	zoom_in(t_fra *fra);
 void	init_mlx(t_fra *fra);
+void	ft_free_struct(t_fra *fra);
 #endif
