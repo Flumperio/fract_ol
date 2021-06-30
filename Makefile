@@ -6,7 +6,7 @@
 #    By: juasanto <juasanto>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 10:44:34 by juasanto          #+#    #+#              #
-#    Updated: 2021/06/30 09:40:51 by jcsantos         ###   ########.fr        #
+#    Updated: 2021/06/30 18:11:16 by juasanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,8 @@ fclean: clean
 		$(RM) ft_printf.out
 		make -C $(LIB_DIR) fclean
 		@echo "$(RED)=========== DONE ===========$(RESET)"
+bonus: all
 re: fclean all
-norm: all
+norm: 
 		$(NORM) $(SRC);
 .PHONY: all clean fclean re
